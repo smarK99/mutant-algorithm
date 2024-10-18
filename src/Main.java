@@ -4,12 +4,9 @@ import java.util.List;
 
 public class Main {
 
-
-
-
     public static void main(String[] args) {
 
-        List<String> dna = new ArrayList<>(List.of("ACGTA", "CGTAC", "CTGAC", "TAGCC", "AAACC"));
+        List<String> dna = new ArrayList<>(List.of("GCCCA", "CATGG", "ACGCC", "TCGGA", "CGTCG"));
         int n = dna.size();
         char[][] matrizDna = new char[n][n];
 
@@ -78,6 +75,21 @@ public class Main {
             }
         }
 
+        //Chequear el adn en la diagonal principal de la matriz
+        int contador = 1;
+        if(matrizDna.length >= 4){
+            for (int i = 1; i < matrizDna.length; i++) {
+                if(matrizDna[i][i] == matrizDna[i - 1][i - 1]){
+                    contador++;
+                    if (contador >= 4){
+                        System.out.println("Mutante diagonal");
+                        break;
+                    }
+                }else{
+                    contador = 1;
+                }
+            }
+        }
 
 
 
